@@ -40,9 +40,6 @@ assert len(SCHEMAS) == 16, len(SCHEMAS)
 print(f"imports ok: ghost {ghost.__version__}, httpx {httpx.__version__}, pytest {pytest.__version__}, tools {len(SCHEMAS)}")
 PY
 
-# inline.py is a Git symlink to a path outside the repository. The blob was
-# never source. The test that reads it cannot pass until that file is
-# recovered, and this script does not replace it.
-echo "Skipping test_inline_source_has_no_hardcoded_secret_and_keeps_shell_tools: inline.py is an unrecovered symlink."
-PYTHONPATH=. .venv/bin/python -m pytest tests -q \
-  --deselect tests/test_execution_engine.py::test_inline_source_has_no_hardcoded_secret_and_keeps_shell_tools
+# Full suite. test_inline_source skips until the real host file is committed
+# as a regular file. requirements-macos.txt is intentionally not installed.
+PYTHONPATH=. .venv/bin/python -m pytest tests -q -rs
