@@ -1,0 +1,18 @@
+# macOS application dependencies from the historical virtualenv
+# (.venv/pyvenv.cfg: CPython 3.9.6, home under Xcode Command Line Tools).
+#
+# Cursor Cloud does not install this file. Do not install it on Ubuntu.
+# PyObjC wheels are tagged cp39-cp39-macosx_10_9_universal2 and link
+# AppKit, ApplicationServices, and other macOS frameworks.
+
+pyobjc-core==10.3.1
+pyobjc-framework-Cocoa==10.3.1
+pyobjc-framework-ApplicationServices==10.3.1
+pyobjc-framework-Quartz==10.3.1
+pyobjc-framework-CoreText==10.3.1
+
+# Also present in that virtualenv. No module under ghost/, tests/, or
+# _ghost_bar_test.py imports them. They are declared so the historical
+# environment is not dropped. Install them on macOS only.
+pynput==1.7.7
+pyperclip==1.11.0

@@ -1,0 +1,13 @@
+# Historical macOS virtualenv removed from Git tracking.
+# Cloud agents create a Linux .venv from requirements-cloud.txt.
+.venv/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local secrets. Names are documented in .env.example.
+.env
+.env.*
+!.env.example
